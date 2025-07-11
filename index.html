@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IBD Case Conference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/boxplot.js"></script>
+    <style>
+        body {
+          padding: 2rem;
+          font-size: 110%;
+        }
+        .hc-container {
+            width: 210px;
+            height: 70px;
+            margin: auto;
+        }
+        th, td {
+            vertical-align: middle;
+            text-align: center;
+        }
+        table td:first-child {
+            text-align: left;
+        }
+    </style>
+    <script>
+    // DATA --------------------------------------------------------------------
+    // label        - defines the text in the first column
+    // responder    - second column
+    // nonResponder - third column
+    // 
+    // Chart format - array of 5 numbers:
+    // [
+    //     min,      // sample minimum
+    //     Q1,       // lower quartile
+    //     median,   // median
+    //     Q3,       // upper quartile
+    //     max       // sample maximum
+    // ]
+    // -------------------------------------------------------------------------
+    const data = [
+        {
+            label: "Subtype of UC",
+            responder: '<a href="#">30%</a>',
+            nonResponder: '<a href="#">70%</a>'
+        },
+        {
+            label: "Stricturing present",
+            responder: "70%",
+            nonResponder: "30%"
+        },
+        {
+            label: "Age at Dx of 12 months",
+            responder   : [5, 10, 12, 16, 28], // [low, q1, median, q3, high]
+            nonResponder: [8,  9, 11, 18, 20], // [low, q1, median, q3, high]
+        },
+        {
+            label: "Sex of Male",
+            responder: "30%",
+            nonResponder: "70%"
+        },
+        {
+            label: "Dx to Anti-TNF initiation of 2 months",
+            responder   : [5, 10, 19, 35, 38], // [low, q1, median, q3, high]
+            nonResponder: [8,  9, 11, 14, 20], // [low, q1, median, q3, high]
+        },
+        {
+            label: "Cause of disease monogenic",
+            responder: "70%",
+            nonResponder: "30%"
+        }
+    ];
+
+    const patient = {
+        name: "Alex Johnson",
+        gender: "Male",
+        dob: "2010-01-05",
+        mrn: "12345678",
+
+        // Not sure what this will represent but it is used to render the red
+        // marker showing how the patient compares with the population
+        value: 14.7
+    };
+    
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex align-items-center mb-4 gap-3" id="patient-header"></div>
+        <br />
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>Patient Characteristic</th>
+                    <th>Anti-TNF Responders</th>
+                    <th>Non-Responders</th>
+                </tr>
+            </thead>
+            <tbody id="data-table-body"></tbody>
+        </table>
+        <br />
+    </div>
+
+    <script>
+      function plotChart(container, options) {
+          Highcharts.chart(container, {
+              chart: {
+                  type: 'boxplot',
+                  inverted: true,
+                  backgroundColor: 'transparent',
+                  style: {
+                    overflow: 'visible' // prevent SVG clipping
+                  }
+              },
+              title: null,
+              xAxis: {
+                  visible: false
+              },
+              yAxis: {
+                  min: options.data[0],
+                  max: options.data[4],
+                  visible: false
+              },
+              series: [
+                  {
+                      type: 'boxplot',
+                      data: [options.data],
+                      color: options.color,
+                      fillColor: options.color + '11'
+                  },
+                  {
+                      name: 'Patient',
+                      type: 'scatter',
+                      data: [[0, patient.value]],
+                      marker: {
+                          enabled: false // hide the dot
+                      },
+                      dataLabels: {
+                          enabled: true,
+                          useHTML: true,
+                          formatter: function () {
+                              return `<div style="margin-top:2px;line-height:28px">
+                                <span style="color:red;font-size: 23px;vertical-align: top">🔺</span> ${patient.value}
+                                </div>`;
+                          },
+                          align        : 'left',
+                          verticalAlign: 'bottom',
+                          y: 0
+                      },
+                      enableMouseTracking: false
+                  }
+              ],
+              credits: { enabled: false },
+              legend: { enabled: false },
+              tooltip: {
+                shared: true,
+                useHTML: true,
+                outside: true,
+                animation: false,
+                hideDelay: 0,
+                style: {
+                    fontSize: 'inherit',
+                    fontFamily: 'inherit',
+                    color: 'inherit'
+                },
+                formatter: function () {
+                    const bp = options.data;
+                    return `
+                        <b>Distribution:</b><br/>
+                        Min: ${bp[0]}<br/>
+                        Q1: ${bp[1]}<br/>
+                        Median: ${bp[2]}<br/>
+                        Q3: ${bp[3]}<br/>
+                        Max: ${bp[4]}<br/>
+                        <hr style="margin:4px 0;">
+                        <b>Patient value:</b> ${patient.value}`;
+                  }
+              },
+          });
+      }
+      
+      function formatDOB(dateStr) {
+          const date = new Date(dateStr);
+          return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+      }
+
+      function renderPatientHeader(patient) {
+          $('#patient-header').html(`
+              <div class="fs-1 text-primary">
+                  <i class="bi bi-person-circle"></i>
+              </div>
+              <div>
+                  <div class="fw-bold fs-4">${patient.name}</div>
+                  <div class="text-muted">
+                      Gender: ${patient.gender} · DOB: ${formatDOB(patient.dob)} · MRN: ${patient.mrn}
+                  </div>
+              </div>
+          `);
+      }
+
+      jQuery(function ($) {
+          renderPatientHeader(patient);
+
+          const $tbody = $("#data-table-body");
+
+          data.forEach((item, index) => {
+              const isBoxplot = Array.isArray(item.responder);
+              const row = $(`
+                  <tr>
+                      <td>${item.label}</td>
+                      <td>${isBoxplot ? `<div id="chart-r-${index}" class="hc-container"></div>` : item.responder}</td>
+                      <td>${isBoxplot ? `<div id="chart-nr-${index}" class="hc-container"></div>` : item.nonResponder}</td>
+                  </tr>
+              `);
+              $tbody.append(row);
+
+              if (isBoxplot) {
+                  plotChart(`chart-r-${index}`, { data: item.responder, color: "#339933" });
+                  plotChart(`chart-nr-${index}`, { data: item.nonResponder, color: "#0d6efd" });
+              }
+          });
+      })
+    </script>
+</body>
+</html>
