@@ -18,7 +18,7 @@
         .hc-container {
             width: 210px;
             height: 70px;
-            margin: auto;
+            margin: 0 auto;
         }
         th, td {
             vertical-align: middle;
@@ -93,16 +93,18 @@
     <div class="container">
         <div class="d-flex align-items-center mb-4 gap-3" id="patient-header"></div>
         <br />
-        <table class="table table-bordered">
-            <thead class="table-light">
-                <tr>
-                    <th>Patient Characteristic</th>
-                    <th>Anti-TNF Responders</th>
-                    <th>Non-Responders</th>
-                </tr>
-            </thead>
-            <tbody id="data-table-body"></tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered w-100">
+                <thead class="table-light">
+                    <tr>
+                        <th>Patient Characteristic</th>
+                        <th>Anti-TNF Responders</th>
+                        <th>Non-Responders</th>
+                    </tr>
+                </thead>
+                <tbody id="data-table-body"></tbody>
+            </table>
+        </div>
         <br />
     </div>
 
@@ -113,6 +115,7 @@
                   type: 'boxplot',
                   inverted: true,
                   backgroundColor: 'transparent',
+                  spacing: [16, 0, 16, 0],
                   style: {
                     overflow: 'visible' // prevent SVG clipping
                   }
