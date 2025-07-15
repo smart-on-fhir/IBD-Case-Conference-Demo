@@ -97,7 +97,7 @@ const patients = [
                 nonResponder: [8,  9, 11, 18, 20], // [low, q1, median, q3, high]
             },
             {
-                label: "Sex of <b>Female</b>",
+                label: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/41">Sex of <b>Female</b></a>',
                 responder: "30%",
                 nonResponder: "<b>70%</b>"
             },
