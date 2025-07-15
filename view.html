@@ -87,7 +87,8 @@
                       type: 'boxplot',
                       data: [options.data],
                       color: options.color,
-                      fillColor: options.color + '11'
+                      fillColor: options.color + '11',
+                      animation: false
                   },
                   {
                       name: 'Patient',
@@ -96,6 +97,7 @@
                       marker: {
                           enabled: false // hide the dot
                       },
+                      animation: false,
                       dataLabels: {
                           enabled: true,
                           useHTML: true,
