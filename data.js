@@ -34,29 +34,34 @@ const patients = [
                 nonResponder: "25%"
             },
             {
-                label: "Stricturing present",
-                responder: "70%",
-                nonResponder: "30%"
-            },
-            {
-                label: "Age at Dx of 12 months",
+                label: "Age at Dx of <b>12 months</b>",
                 responder   : [5, 10, 12, 16, 28], // [low, q1, median, q3, high]
                 nonResponder: [8,  9, 11, 18, 20], // [low, q1, median, q3, high]
             },
             {
-                label: "Sex of Male",
+                label: "Sex of <b>Male</b>",
                 responder: "30%",
-                nonResponder: "70%"
+                nonResponder: "<b>70%</b>"
             },
             {
-                label: "Dx to Anti-TNF initiation of 2 months",
+                label: "Race of <b>Black or African American</b>",
+                responder: "28%",
+                nonResponder: "<b>72%</b>"
+            },
+            {
+                label: "Dx to Anti-TNF initiation of <b>1 months</b>",
                 responder   : [5, 10, 19, 35, 38], // [low, q1, median, q3, high]
                 nonResponder: [8,  9, 11, 14, 20], // [low, q1, median, q3, high]
             },
             {
-                label: "Cause of disease monogenic",
-                responder: "70%",
-                nonResponder: "30%"
+                label: "Rare genetic variant with predicted effect in <b>IL10RA gene</b>",
+                responder: "<b>3%</b>",
+                nonResponder: "<b>93%</b>"
+            },
+            {
+                label: "Rare genetic variant with predicted effect in <b>LRBA gene</b>",
+                responder: "<b>5%</b>",
+                nonResponder: "<b>95%</b>"
             }
         ]
     },
@@ -72,34 +77,49 @@ const patients = [
         value: 14.3,
         populationData: [
             {
-                label: "Subtype of UC",
+                label: "IBD Subtype is <b>Crohn's Disease (CD)</b>",
                 responder: '<a href="#">30%</a>',
-                nonResponder: '<a href="#">70%</a>'
+                nonResponder: '<a href="#"><b>70%</b></a>'
             },
             {
-                label: "Stricturing present",
-                responder: "70%",
-                nonResponder: "30%"
+                label: "CD Location is <b>L3 (Ileocolonic)</b> and <b>L4a (Upper GI)</b>",
+                responder: "40%",
+                nonResponder: "<b>60%</b>"
             },
             {
-                label: "Age at Dx of 12 months",
+                label: "CD Behavior: <b>B2: stricturing</b>",
+                responder: "<b>75%</b>",
+                nonResponder: "25%"
+            },
+            {
+                label: "Age at Dx of <b>52 months</b>",
                 responder   : [5, 10, 12, 16, 28], // [low, q1, median, q3, high]
                 nonResponder: [8,  9, 11, 18, 20], // [low, q1, median, q3, high]
             },
             {
-                label: "Sex of Male",
+                label: "Sex of <b>Female</b>",
                 responder: "30%",
-                nonResponder: "70%"
+                nonResponder: "<b>70%</b>"
             },
             {
-                label: "Dx to Anti-TNF initiation of 2 months",
+                label: "Race of <b>Asian</b>",
+                responder: "28%",
+                nonResponder: "<b>78%</b>"
+            },
+            {
+                label: "Dx to Anti-TNF initiation of <b>1 months</b>",
                 responder   : [5, 10, 19, 35, 38], // [low, q1, median, q3, high]
                 nonResponder: [8,  9, 11, 14, 20], // [low, q1, median, q3, high]
             },
             {
-                label: "Cause of disease monogenic",
-                responder: "70%",
-                nonResponder: "30%"
+                label: "Rare genetic variant with predicted effect in <b>IL10RA gene</b>",
+                responder: "<b>3%</b>",
+                nonResponder: "<b>93%</b>"
+            },
+            {
+                label: "Rare genetic variant with predicted effect in <b>LRBA gene</b>",
+                responder: "<b>5%</b>",
+                nonResponder: "<b>95%</b>"
             }
         ]
     }
