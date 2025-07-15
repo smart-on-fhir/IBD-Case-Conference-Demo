@@ -68,7 +68,8 @@
                   style: {
                     overflow: 'visible' // prevent SVG clipping
                   },
-                  height: 54
+                  height: 54,
+                  width : 200
               },
               title: null,
               xAxis: {
@@ -81,6 +82,22 @@
                   min       : options.data[0],
                   max       : options.data[4],
 
+              },
+              plotOptions: {
+                  boxplot: {
+                    // boxDashStyle: 'Dash',
+                    // fillColor: '#F0F0E0',
+                    lineWidth: 1.5,
+                    // medianColor: '#0C5DA5',
+                    // medianDashStyle: 'ShortDot',
+                    medianWidth: 3,
+                    // stemColor: '#A63400',
+                    stemDashStyle: 'ShortDash',
+                    // stemWidth: 1,
+                    // whiskerColor: '#3D9200',
+                    // whiskerLength: '20%',
+                    whiskerWidth: 3
+                  }
               },
               series: [
                   {
