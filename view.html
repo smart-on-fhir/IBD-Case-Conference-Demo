@@ -19,8 +19,8 @@
         }
         .hc-container {
             width: 200px;
-            height: 70px;
-            margin: 0 auto;
+            /* height: 70px; */
+            margin: -6px auto 0;
         }
         th, td {
             vertical-align: middle;
@@ -65,17 +65,23 @@
                   type: 'boxplot',
                   inverted: true,
                   backgroundColor: 'transparent',
-                  spacing: [10, 0, 10, 0],
+                  spacing: [0, 2, 4, 2],
                   style: {
                     overflow: 'visible' // prevent SVG clipping
-                  }
+                  },
+                  height: 54
               },
               title: null,
               xAxis: {
                   visible: false
               },
               yAxis: {
-                  visible: false
+                  visible   : false,
+                  maxPadding: 0,
+                  minPadding: 0,
+                  min       : options.data[0],
+                  max       : options.data[4],
+
               },
               series: [
                   {
@@ -101,7 +107,7 @@
                           },
                           align        : 'left',
                           verticalAlign: 'bottom',
-                          y: 0
+                          y            : 0
                       },
                       enableMouseTracking: false
                   }
