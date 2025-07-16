@@ -66,8 +66,8 @@ const patients = [
         ]
     },
     {
-        name: "Terry Hunt",
-        gender: "Male",
+        name: "Teresa Anderson",
+        gender: "Female",
         dob: "2010-01-05",
         mrn: "23456789",
         description: "Cras tincidunt orci lectus, vitae euismod urna fermentum ut. Donec auctor condimentum urna, sed pharetra leo. Vestibulum blandit risus ut pellentesque ullamcorper. Morbi sit amet eros interdum, congue nibh in, semper velit. Donec vitae arcu id nisl pulvinar porta nec eget libero. Sed in nibh ut mauris interdum bibendum. In bibendum ultricies lorem. Integer viverra turpis ut libero egestas, non posuere augue tristique. In nec justo sapien. Vestibulum dignissim, felis vel eleifend ornare, ante lacus rhoncus velit, malesuada scelerisque mauris neque congue dolor. Aenean ultricies eu massa ut aliquam. Sed suscipit nunc sem. Vivamus nec blandit mauris, at facilisis justo. Maecenas faucibus ac velit id vestibulum. Proin venenatis blandit aliquet.",
@@ -77,9 +77,9 @@ const patients = [
         value: 14.3,
         populationData: [
             {
-                label: "IBD Subtype is <b>Crohn's Disease (CD)</b>",
-                responder: '<a href="#">30%</a>',
-                nonResponder: '<a href="#"><b>70%</b></a>'
+                label: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/40">IBD Subtype is <b>Crohn\'s Disease (CD)</b></a>',
+                responder: '57.5%',
+                nonResponder: '<b>42.5%</b>'
             },
             {
                 label: "CD Location is <b>L3 (Ileocolonic)</b> and <b>L4a (Upper GI)</b>",
@@ -87,24 +87,24 @@ const patients = [
                 nonResponder: "<b>60%</b>"
             },
             {
-                label: "CD Behavior: <b>B2: stricturing</b>",
-                responder: "<b>75%</b>",
-                nonResponder: "25%"
+                label: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/45">CD Behavior: <b>B2: stricturing</b></a>',
+                responder: "<b>56.7%</b>",
+                nonResponder: "43.3%"
             },
             {
-                label: "Age at Dx of <b>52 months</b>",
+                label: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/37">Age at Dx of <b>52 months</b></a>',
                 responder   : [5, 10, 12, 16, 28], // [low, q1, median, q3, high]
                 nonResponder: [8,  9, 11, 18, 20], // [low, q1, median, q3, high]
             },
             {
                 label: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/41">Sex of <b>Female</b></a>',
-                responder: "30%",
-                nonResponder: "<b>70%</b>"
+                responder: "57.9%",
+                nonResponder: "<b>42.1%</b>"
             },
             {
-                label: "Race of <b>Asian</b>",
-                responder: "28%",
-                nonResponder: "<b>78%</b>"
+                label: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/39">Race of <b>Asian</b></a>',
+                responder: "77.8%",
+                nonResponder: "<b>22.2%</b>"
             },
             {
                 label: "Dx to Anti-TNF initiation of <b>1 months</b>",
@@ -112,14 +112,14 @@ const patients = [
                 nonResponder: [8,  9, 11, 14, 20], // [low, q1, median, q3, high]
             },
             {
-                label: "Rare genetic variant with predicted effect in <b>IL10RA gene</b>",
-                responder: "<b>3%</b>",
-                nonResponder: "<b>93%</b>"
+                label: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/38">Rare genetic variant with predicted effect in <b>IL10RA gene</b></a>',
+                responder: '<b class="text-muted">-</b>',
+                nonResponder: '<b class="text-muted">-</b>'
             },
             {
-                label: "Rare genetic variant with predicted effect in <b>LRBA gene</b>",
-                responder: "<b>5%</b>",
-                nonResponder: "<b>95%</b>"
+                label: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/38">Rare genetic variant with predicted effect in <b>LRBA gene</b></a>',
+                responder: "<b>100%</b>",
+                nonResponder: "<b>0%</b>"
             }
         ]
     }
