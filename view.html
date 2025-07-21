@@ -160,7 +160,7 @@
                 const { label, surgery, responder, nonResponder } = item
                 $tbody.append(`
                     <tr>
-                        <td class="text-start"><i class="bi bi-caret-right-fill text-success"></i> ${label}</td>
+                        <td class="text-start ps-0"><i class="bi bi-caret-right-fill text-success"></i> ${label}</td>
                         <td class="no-hover"></td>
                         <td class="bg-pale-primary">${surgery.boxplot ? `<a href="${surgery.boxplot.link || "javascript:void 0"}" data-boxplot="${surgery.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : surgery}</td>
                         <td class="no-hover"></td>
