@@ -12,19 +12,6 @@
     <style>
         body {
           padding: 2rem;
-          font-size: 110%;
-        }
-        .hc-container {
-            width: 200px;
-            height: 70px;
-            margin: 0 auto;
-        }
-        th, td {
-            vertical-align: middle;
-            text-align: center;
-        }
-        table td:first-child {
-            text-align: left;
         }
     </style>
 </head>
@@ -38,11 +25,9 @@
             This demo app uses sample data to visualize IBD patient scenarios and is intended for demonstration purposes only.
         </div>
     </div>
-
     <script>
         jQuery(function ($) {
             const $list = $("#patient-list")
-
             patients.forEach((patient, index) => {
                 $list.append(
                     `<div>
@@ -53,25 +38,6 @@
                         <br />
                     </div>`
                 )
-        //   renderPatientHeader(patient);
-
-        //   const $tbody = $("#data-table-body");
-
-        //   data.forEach((item, index) => {
-        //       const isBoxplot = Array.isArray(item.responder);
-        //       const row = $(`
-        //           <tr>
-        //               <td>${item.label}</td>
-        //               <td>${isBoxplot ? `<div id="chart-r-${index}" class="hc-container"></div>` : item.responder}</td>
-        //               <td>${isBoxplot ? `<div id="chart-nr-${index}" class="hc-container"></div>` : item.nonResponder}</td>
-        //           </tr>
-        //       `);
-        //       $tbody.append(row);
-
-        //       if (isBoxplot) {
-        //           plotChart(`chart-r-${index}`, { data: item.responder, color: "#339933" });
-        //           plotChart(`chart-nr-${index}`, { data: item.nonResponder, color: "#0d6efd" });
-        //       }
             });
         })
     </script>
