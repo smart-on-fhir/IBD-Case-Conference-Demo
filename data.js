@@ -38,19 +38,19 @@ const patients = [
         value: 4, // The patient age in years we render over the boxplot charts
         populationData: [
             {
-                label: 'IBD Subtype is <b class="text-success">UC (Ulcerative Colitis)</b>',
+                label: 'IBD Subtype <b class="text-success">UC (Ulcerative Colitis)</b>',
                 responder: '26%',
                 nonResponder: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/70">74%</a>',
                 surgery: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/84">41%</a>'
             },
             {
-                label: "UC Location is <b>E4: pancolitis</b> (proximal to hepatic flexure)",
+                label: "UC Location <b>E4: pancolitis</b> (proximal to hepatic flexure)",
                 responder: "28%",
                 nonResponder: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/63">72%</a>',
                 surgery: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/90">56%</a>'
             },
             {
-                label: "UC Severity: <b>S1: ever severe</b> (PUCAI >/= 65)",
+                label: "UC Severity <b>S1: ever severe</b> (PUCAI >/= 65)",
                 responder: "21%",
                 nonResponder: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/42">79%</a>',
                 surgery: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/91">69%</a>'
