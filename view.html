@@ -79,12 +79,12 @@
             <table class="table table-hover w-100 mb-0">
                 <thead>
                     <tr>
-                        <td class="text-start text-success" style="width:auto"><b>IBD Patient Characteristic</b></td>
+                        <td class="text-start text-success" style="width:auto"><b><span class="patient-name"></span> Features</b></td>
                         <td style="width:20px" class="no-hover"></td>
                         <td style="width:250px"><span class="text-success">IBD Surgery<br/><b>required</b></span><br/><small class="text-muted">(Bowel Resection)</small></td>
                         <td style="width:20px" class="no-hover"></td>
-                        <td style="width:250px"><span class="text-success">Anti-TNF<br/><b>responder</b></span><br/><small class="text-muted">(Never Failed)</small></td>
-                        <td style="width:250px"><span class="text-success">Anti-TNF<br/><b>non-responder</b></span><br/><small class="text-muted">(Ever Failed)</small></td>
+                        <td style="width:250px"><span class="text-success">Chance of anti-TNF<br/><b>response</b></span><br/><small class="text-muted">(Never Failed)</small></td>
+                        <td style="width:250px"><span class="text-success">Chance of anti-TNF<br/><b>non-response</b></span><br/><small class="text-muted">(Ever Failed)</small></td>
                     </tr>
                 </thead>
                 <tbody id="data-table-body"></tbody>
@@ -152,6 +152,7 @@
             const patient = mrn ? patients.find(p => p.mrn === mrn) : {}
 
             renderPatientHeader(patient);
+            $(".patient-name").each((_,el) => $(el).text(patient.name))
             renderPopulationHeader(patient.population);
 
             const $tbody = $("#data-table-body");

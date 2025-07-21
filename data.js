@@ -6,7 +6,15 @@ const patients = [
         gender: "Female",
         dob: "2020-03-15",
         mrn: "12345678",
-        description: "Female; Age >= 4 years; White; UC (Ulcerative Colitis); Description TODO; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque maximus euismod est, sit amet commodo sem commodo sed. Duis gravida sem ac nunc dignissim pretium. Etiam pretium purus quis tincidunt vulputate. Praesent hendrerit lacinia scelerisque. Nam metus mi, dapibus quis fringilla eget, finibus eget lorem. Suspendisse potenti. Aliquam porta porta massa. Etiam ac convallis enim. Nunc laoreet lacus justo, eget varius purus lobortis nec. Donec in urna diam. Nulla quis egestas neque.",
+        description: `This 4-year-old Caucasian girl was diagnosed with ulcerative distal colitis,
+        affecting the colon up to the splenic flexure. She presents with bloody, mucousy diarrhea
+        and elevated inflammatory markers, but maintains normal weight and growth. Prior treatments
+        with sulfasalazine, budesonide, and dietary interventions, including enteral nutrition,
+        have not improved symptoms. She has a history of C. difficile infection (treated with
+        vancomycin) and a severe nut allergy, complicating dietary management. She exhibits no
+        systemic symptoms. Given her lack of response to current therapies, initiation of
+        immunomodulatory treatment is being considered, pending confirmation of up-to-date
+        immunization status.`,
 
         // Medications table and chart screenshot
         // ---------------------------------------------------------------------
@@ -54,13 +62,13 @@ const patients = [
                 surgery     : { boxplot: { data: [1, 2, 10.5, 20, 32], link: "https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/92" }}, // 2,2,1,2,1,3,4,8,4,15,19,20,13,29,25,25,32,17      
             },
             {
-                label: "Sex of <b>Female</b>",
+                label: "<b>Female</b>",
                 responder: "24%",
                 nonResponder: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/78">76%</a>',
                 surgery: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/87">39%</a>'
             },
             {
-                label: "Race of <b>White</b>",
+                label: "<b>White</b>",
                 responder: "21%",
                 nonResponder: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/79">79%</a>',
                 surgery: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/88">42%</a>'
@@ -76,11 +84,18 @@ const patients = [
     {
         // Patient header and description
         // ---------------------------------------------------------------------
-        name: "Alex Johnson",
+        name: "Malik Johnson",
         gender: "Male",
-        dob: "2020-01-05",
+        dob: "2022-01-05",
         mrn: "23456789",
-        description: "Male; Age >= 1 years; Black or African American; Crohn's Disease (CD); Description TODO; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque maximus euismod est, sit amet commodo sem commodo sed. Duis gravida sem ac nunc dignissim pretium. Etiam pretium purus quis tincidunt vulputate. Praesent hendrerit lacinia scelerisque. Nam metus mi, dapibus quis fringilla eget, finibus eget lorem. Suspendisse potenti. Aliquam porta porta massa. Etiam ac convallis enim. Nunc laoreet lacus justo, eget varius purus lobortis nec. Donec in urna diam. Nulla quis egestas neque.",
+        description: `
+        This young male was diagnosed with severe Crohn's disease at 12 months of age, with ileocolonic involvement and
+        a stricturing phenotype. He initially responded to infliximab, had moderate response to adalimumab, and is now
+        on ustekinumab due to ongoing disease activity. Despite treatment, recent endoscopy and imaging show persistent
+        inflammation in the ileum and ascending colon. He has significant growth failure, now below the 3rd percentile
+        for height and weight. Laboratory tests reveal elevated CRP and ESR, indicating active inflammation, although
+        clinical symptoms are minimal. Management is focused on controlling inflammation and improving growth through
+        ongoing therapeutic adjustment and monitoring.`,
         
         // Medications table and chart screenshot
         // ---------------------------------------------------------------------
@@ -128,13 +143,13 @@ const patients = [
                 surgery     : { boxplot: { data: [1, 2, 10.5, 20, 32] }}, // 2,2,1,2,1,3,4,8,4,15,19,20,13,29,25,25,32,17        ?
             },
             {
-                label: 'Sex of <b>Male</b>',
+                label: '<b>Male</b>',
                 responder: "24%",
                 nonResponder: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/75">76%</a>',
                 surgery: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/87">41%</a>'
             },
             {
-                label: 'Race of <b>Black or African American</b>',
+                label: '<b>Black or African American</b>',
                 responder: "14%",
                 nonResponder: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/77">86%</a>',
                 surgery: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/88">30%</a>'
