@@ -21,11 +21,12 @@
             width:100%;
             mix-blend-mode: multiply;
             margin-right: 2rem;
-            min-width: 200px;
+            min-width: 500px;
+            height: 22em;
         }
 
         .hc-container {
-            width: 200px;
+            /* width: 180px; */
             margin: -4px auto 0;
             display: block;
         }
@@ -38,6 +39,21 @@
             text-align    : center;
             line-height   : normal;
         }
+        .table-hover tbody tr.no-hover:hover > td,
+        .table-hover tbody tr.no-hover:hover > th,
+        .table-hover td.no-hover,
+        .table-hover th.no-hover {
+            background-color: inherit;
+            box-shadow: none;
+            border-color: transparent !important;
+        }
+        tr.no-border {
+            border-color: transparent !important;
+        }
+        .bg-pale-blue {
+            background-color: #0088FF11 !important;
+        }
+
     </style>
 </head>
 <body>
@@ -49,36 +65,34 @@
         <div id="patient-description" class="pb-3"></div>
 
 
-        <div class="table-responsive mb-5">
-            <table class="table table-hover w-100">
+        <div class="table-responsive">
+            <table class="table table-hover w-100 mb-0">
                 <thead>
                     <tr>
                         <td class="text-start text-success" style="width:auto"><b>IBD Patient Characteristic</b></td>
-                        <td style="width:200px"><span class="text-success">IBD Surgery<br/><b>required</b></span><br/><small class="text-muted">(Bowel Resection)</small></td>
-                        <td style="width:200px"><span class="text-success">Anti-TNF<br/><b>responder</b></span><br/><small class="text-muted">(Never Failed)</small></td>
-                        <td style="width:200px"><span class="text-success">Anti-TNF<br/><b>non-responder</b></span><br/><small class="text-muted">(Ever Failed)</small></td>
+                        <td style="width:250px"><span class="text-success">IBD Surgery<br/><b>required</b></span><br/><small class="text-muted">(Bowel Resection)</small></td>
+                        <td style="width:20px" class="no-hover"></td>
+                        <td style="width:250px"><span class="text-success">Anti-TNF<br/><b>responder</b></span><br/><small class="text-muted">(Never Failed)</small></td>
+                        <td style="width:250px"><span class="text-success">Anti-TNF<br/><b>non-responder</b></span><br/><small class="text-muted">(Ever Failed)</small></td>
                     </tr>
                 </thead>
                 <tbody id="data-table-body"></tbody>
-            </table>
-        </div>
-
-        <!-- Population table -->
-        <div class="table-responsive mb-5">
-            <table class="w-100">
                 <tbody>
-                    <tr>
-                        <td style="max-width: 580px; vertical-align: middle;">
+                    <tr class="no-hover no-border">
+                        <td colspan="5">&nbsp;</td>
+                    </tr>
+                    <tr class="no-hover no-border">
+                        <td colspan="2" style="vertical-align: middle;">
                             <a><img class="chart-screenshot" /></a>
                         </td>
-                        <td style="vertical-align: top;">
-                            <table class="table table-sm small w-100 table-hover mt-1">
+                        <td class="no-hover"></td>
+                        <td colspan="2" style="vertical-align: top; padding: 0;">
+                            <table class="table table-sm small w-100 table-hover mt-3">
                                 <thead>
                                     <tr>
-                                        <th class="text-start" style="width:15%">IBD Type</th>
-                                        <th class="text-start">IBD Drug Class</th>
-                                        <th class="text-center" style="width:17%"># Patients</th>
-                                        <th class="text-start" colspan="2" style="width: 260px;">Surgery free survival years</th>
+                                        <th class="text-start pb-2">IBD Drug Class</th>
+                                        <th class="text-center pb-2" style="width:7em"># Patients</th>
+                                        <th class="text-start pb-2" colspan="2" style="width: 160px;">Surgery free survival years</th>
                                     </tr>
                                 </thead>
                                 <tbody id="population-table-body"></tbody>
@@ -88,6 +102,31 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Population table -->
+        <!-- <div class="table-responsive mb-5">
+            <table class="w-100 table-bordered">
+                <tbody>
+                    <tr>
+                        <td style="vertical-align: middle;">
+                            <a><img class="chart-screenshot" /></a>
+                        </td>
+                        <td style="vertical-align: top; width: 500px">
+                            <table class="table table-sm small w-100 table-hover mt-1">
+                                <thead>
+                                    <tr>
+                                        <th class="text-start">IBD Drug Class</th>
+                                        <th class="text-center" style="width:7em"># Patients</th>
+                                        <th class="text-start" colspan="2" style="width: 160px;">Surgery free survival years</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="population-table-body"></tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> -->
 
         <br />
         <div class="bg-light rounded-bottom px-2 py-4 border-top small text-secondary text-center">
@@ -111,8 +150,9 @@
                     <tr>
                         <td class="text-start">${label}</td>
                         <td>${surgery.boxplot ? `<a href="${surgery.boxplot.link || "javascript:void 0"}" data-boxplot="${surgery.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : surgery}</td>
-                        <td>${responder.boxplot ? `<a href="${responder.boxplot.link || "javascript:void 0"}" data-boxplot="${responder.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : responder}</td>
-                        <td>${nonResponder.boxplot ? `<a href="${nonResponder.boxplot.link || "javascript:void 0"}" data-boxplot="${nonResponder.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : nonResponder}</td>
+                        <td class="no-hover"></td>
+                        <td class="bg-pale-blue">${responder.boxplot ? `<a href="${responder.boxplot.link || "javascript:void 0"}" data-boxplot="${responder.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : responder}</td>
+                        <td class="bg-pale-blue">${nonResponder.boxplot ? `<a href="${nonResponder.boxplot.link || "javascript:void 0"}" data-boxplot="${nonResponder.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : nonResponder}</td>
                     </tr>
                 `);
             });
@@ -123,7 +163,7 @@
                 if (value) {
                     plotChart(node, { data, height: 40, width: 200 }, +value)
                 } else {
-                    populationPlotChart(node, { data, height: 36, width: 260 })
+                    populationPlotChart(node, { data, height: 36, width: 160 })
                 }
             })
         })
