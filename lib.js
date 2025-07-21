@@ -21,16 +21,16 @@ const plotChartBaseConfig = {
             // boxDashStyle: 'Dash',
             fillColor: '#FFFFFF',
             lineWidth: 1,
-            medianColor: '#888888',
+            medianColor: 'rgba(33, 37, 41, 0.75)',
             // medianDashStyle: 'ShortDot',
             medianWidth: 2,
-            stemColor: '#888888',
-            stemDashStyle: 'ShortDash',
+            stemColor: 'rgba(33, 37, 41, 0.75)',
+            stemDashStyle: 'ShortDot',
             // stemWidth: 1,
-            whiskerColor: '#888888',
+            whiskerColor: 'rgba(33, 37, 41, 0.75)',
             whiskerLength: '60%',
             whiskerWidth: 2,
-            color    : "#888888",
+            color    : "rgba(33, 37, 41, 0.75)",
             animation: false,
         }
     },
@@ -195,7 +195,7 @@ function renderPopulationHeader(data) {
                 <td class="text-start text-success fw-semibold">${row[1]}</td>
                 <td class="text-center text-muted">${row[2]}</td>
                 <td class="text-start hc-container-small" data-boxplot="${row[3].boxplot.data.join(",")}"></td>
-                <td class="text-start text-muted" style="width:3em"><span class="badge bg-success d-block">${row[3].boxplot.data[2]}</span></td>
+                <td class="text-start text-muted px-2" style="width:5em"><span class="badge bg-success d-block">${row[3].boxplot.data[2]}</span></td>
             </tr>`
         ).appendTo($tbody)
     })
