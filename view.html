@@ -41,6 +41,8 @@
         }
         .table-hover tbody tr.no-hover:hover > td,
         .table-hover tbody tr.no-hover:hover > th,
+        .table-striped tbody tr.no-hover > td,
+        .table-striped tbody tr.no-hover > th,
         .table-hover td.no-hover,
         .table-hover th.no-hover {
             background-color: inherit;
@@ -50,8 +52,16 @@
         tr.no-border {
             border-color: transparent !important;
         }
-        .bg-pale-blue {
+        .bg-pale-success {
             background-color: rgba(var(--bs-success-rgb), 0.05) !important;
+        }
+        .bg-pale-primary {
+            background-color: rgba(var(--bs-primary-rgb), 0.05) !important;
+        }
+
+        td td,
+        td th {
+            background: transparent !important;
         }
 
     </style>
@@ -70,6 +80,7 @@
                 <thead>
                     <tr>
                         <td class="text-start text-success" style="width:auto"><b>IBD Patient Characteristic</b></td>
+                        <td style="width:20px" class="no-hover"></td>
                         <td style="width:250px"><span class="text-success">IBD Surgery<br/><b>required</b></span><br/><small class="text-muted">(Bowel Resection)</small></td>
                         <td style="width:20px" class="no-hover"></td>
                         <td style="width:250px"><span class="text-success">Anti-TNF<br/><b>responder</b></span><br/><small class="text-muted">(Never Failed)</small></td>
@@ -79,15 +90,15 @@
                 <tbody id="data-table-body"></tbody>
                 <tbody>
                     <tr class="no-hover no-border">
-                        <td colspan="5">&nbsp;</td>
+                        <td colspan="6" style="height:20px"></td>
                     </tr>
                     <tr class="no-hover no-border">
-                        <td colspan="2" style="vertical-align: middle;">
+                        <td colspan="3" class="bg-pale-primary" style="vertical-align: middle;">
                             <a><img class="chart-screenshot" /></a>
                         </td>
                         <td class="no-hover"></td>
-                        <td colspan="2" style="vertical-align: top; padding: 0;">
-                            <table class="table table-sm small w-100 table-hover mt-3">
+                        <td colspan="2" class="bg-pale-success" style="vertical-align: top;">
+                            <table class="table table-sm small w-100 table-hover mt-2">
                                 <thead>
                                     <tr>
                                         <th class="text-start pb-2 text-success">IBD Drug Class</th>
@@ -149,10 +160,11 @@
                 $tbody.append(`
                     <tr>
                         <td class="text-start">${label}</td>
-                        <td>${surgery.boxplot ? `<a href="${surgery.boxplot.link || "javascript:void 0"}" data-boxplot="${surgery.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : surgery}</td>
                         <td class="no-hover"></td>
-                        <td class="bg-pale-blue">${responder.boxplot ? `<a href="${responder.boxplot.link || "javascript:void 0"}" data-boxplot="${responder.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : responder}</td>
-                        <td class="bg-pale-blue">${nonResponder.boxplot ? `<a href="${nonResponder.boxplot.link || "javascript:void 0"}" data-boxplot="${nonResponder.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : nonResponder}</td>
+                        <td class="bg-pale-primary">${surgery.boxplot ? `<a href="${surgery.boxplot.link || "javascript:void 0"}" data-boxplot="${surgery.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : surgery}</td>
+                        <td class="no-hover"></td>
+                        <td class="bg-pale-success">${responder.boxplot ? `<a href="${responder.boxplot.link || "javascript:void 0"}" data-boxplot="${responder.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : responder}</td>
+                        <td class="bg-pale-success">${nonResponder.boxplot ? `<a href="${nonResponder.boxplot.link || "javascript:void 0"}" data-boxplot="${nonResponder.boxplot.data.join(",")}" data-value="${patient.value}" class="hc-container"></a>` : nonResponder}</td>
                     </tr>
                 `);
             });

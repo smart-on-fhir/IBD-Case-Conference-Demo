@@ -191,10 +191,10 @@ function renderPopulationHeader(data) {
     data.tableRows.forEach(row => {
         $(
             `<tr>
-                <td class="text-start fw-semibold bg-pale-blue">${row[1]}</td>
-                <td class="text-center text-muted bg-pale-blue">${row[2]}</td>
-                <td class="text-start hc-container-small bg-pale-blue" data-boxplot="${row[3].boxplot.data.join(",")}"></td>
-                <td class="text-start text-muted px-2 bg-pale-blue" style="width:4em"><span class="badge bg-success d-block">${row[3].boxplot.data[2]}</span></td>
+                <td class="text-start fw-semibold">${row[1]}</td>
+                <td class="text-center text-muted">${row[2]}</td>
+                <td class="text-start hc-container-small" data-boxplot="${row[3].boxplot.data.join(",")}"></td>
+                <td class="text-start text-muted px-2" style="width:4em"><span class="badge bg-success d-block">${row[3].boxplot.data[2]}</span></td>
             </tr>`
         ).appendTo($tbody)
     })
