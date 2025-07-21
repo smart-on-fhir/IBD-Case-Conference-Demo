@@ -102,46 +102,45 @@ function plotChart(container, options, value) {
             {
                 type: 'boxplot',
                 data: [options.data]
-            }
-        ]
-    };
-
-    if (value || value === 0) {
-        cfg.series.push({
-            name: 'Patient',
-            type: 'scatter',
-            data: [[0, value]],
-            marker: {
-                enabled: false // hide the dot
             },
-            animation: false,
-            dataLabels: {
-                enabled: true,
-                useHTML: true,
-                formatter: function () {
-                    return `<div style="margin-top:1px;line-height:20px">
-                    <span style="color:red;font-size: 18px;vertical-align: top">🔺</span>
-                    </div>`;
+            {
+                name: 'Patient',
+                type: 'scatter',
+                data: [[0, value]],
+                marker: {
+                    enabled: false // hide the dot
                 },
-                align: 'left',
-                verticalAlign: 'bottom',
-                y: 0
-            },
-            enableMouseTracking: false
-        });
-
-        cfg.tooltip.formatter = () => {
-            const bp = options.data;
-            return `<b>Distribution:</b><br/>
-            Min: ${bp[0]}<br/>
-            Q1: ${bp[1]}<br/>
-            Median: ${bp[2]}<br/>
-            Q3: ${bp[3]}<br/>
-            Max: ${bp[4]}<br/>
-            <hr style="margin:4px 0;">
-            <b>Patient value:</b> ${value}`;
-        };
-    }
+                animation: false,
+                dataLabels: {
+                    enabled: true,
+                    useHTML: true,
+                    formatter: function () {
+                        return `<div style="margin-top:1px;line-height:20px">
+                        <span style="color:red;font-size: 18px;vertical-align: top">🔺</span>
+                        </div>`;
+                    },
+                    align: 'left',
+                    verticalAlign: 'bottom',
+                    y: 0
+                },
+                enableMouseTracking: false
+            }
+        ],
+        tooltip: {
+            ...plotChartBaseConfig.tooltip,
+            formatter: () => {
+                const bp = options.data;
+                return `<b>Distribution:</b><br/>
+                Min: ${bp[0]}<br/>
+                Q1: ${bp[1]}<br/>
+                Median: ${bp[2]}<br/>
+                Q3: ${bp[3]}<br/>
+                Max: ${bp[4]}<br/>
+                <hr style="margin:4px 0;">
+                <b>Patient value:</b> ${value}`;
+            }
+        }
+    };
 
     Highcharts.chart(container, cfg);
 }
