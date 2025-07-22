@@ -52,11 +52,11 @@ const plotChartBaseConfig = {
         formatter () {
             return `<b class="text-success">Distribution</b><hr style="margin:4px 0;"/>
             <table><tbody>
-            <tr><td style="text-align: right">Min:&nbsp;</td><td>${this.low}</td></tr>
-            <tr><td style="text-align: right">Q1:&nbsp;</td><td>${this.q1}</td></tr>
-            <tr><td style="text-align: right">Median:&nbsp;</td><td><b>${this.median}</b></td></tr>
-            <tr><td style="text-align: right">Q3:&nbsp;</td><td>${this.q3}</td></tr>
-            <tr><td style="text-align: right">Max:&nbsp;</td><td>${this.high}</td></tr>
+            <tr><td style="text-align:right">Min:&nbsp;</td><td style="text-align:left">${this.low}</td></tr>
+            <tr><td style="text-align:right">Q1:&nbsp;</td><td style="text-align:left">${this.q1}</td></tr>
+            <tr><td style="text-align:right">Median:&nbsp;</td><td style="text-align:left"><b>${this.median}</b></td></tr>
+            <tr><td style="text-align:right">Q3:&nbsp;</td><td style="text-align:left">${this.q3}</td></tr>
+            <tr><td style="text-align:right">Max:&nbsp;</td><td style="text-align:left">${this.high}</td></tr>
             </tbody>
             </table>`;
         }
@@ -136,11 +136,11 @@ function plotChart(container, options, value) {
                 const bp = options.data;
                 return `<b class="text-success">Distribution</b><hr style="margin:4px 0;"/>
                 <table><tbody>
-                <tr><td style="text-align: right">Min:&nbsp;</td><td>${bp[0]}</td></tr>
-                <tr><td style="text-align: right">Q1:&nbsp;</td><td>${bp[1]}</td></tr>
-                <tr><td style="text-align: right">Median:&nbsp;</td><td><b>${bp[2]}</b></td></tr>
-                <tr><td style="text-align: right">Q3:&nbsp;</td><td>${bp[3]}</td></tr>
-                <tr><td style="text-align: right">Max:&nbsp;</td><td>${bp[4]}</td></tr>
+                <tr><td style="text-align:right">Min:&nbsp;</td><td style="text-align:left">${bp[0]}</td></tr>
+                <tr><td style="text-align:right">Q1:&nbsp;</td><td style="text-align:left">${bp[1]}</td></tr>
+                <tr><td style="text-align:right">Median:&nbsp;</td><td style="text-align:left"><b>${bp[2]}</b></td></tr>
+                <tr><td style="text-align:right">Q3:&nbsp;</td><td style="text-align:left">${bp[3]}</td></tr>
+                <tr><td style="text-align:right">Max:&nbsp;</td><td style="text-align:left">${bp[4]}</td></tr>
                 </tbody>
                 </table>
                 <br/>
