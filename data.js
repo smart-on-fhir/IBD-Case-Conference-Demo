@@ -35,7 +35,7 @@ const patients = [
 
         // Main table
         // ---------------------------------------------------------------------
-        value: 4, // The patient age in years we render over the boxplot charts
+        value: 4.33, // The patient age in years we render over the boxplot charts
         populationData: [
             {
                 label: 'IBD Subtype <b class="text-success">UC (Ulcerative Colitis)</b>',
@@ -56,10 +56,12 @@ const patients = [
                 surgery: '<a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/91">69%</a>'
             },
             {
-                label: "Age at Dx of <b>52 months</b> (4 years)",
-                responder   : { boxplot: { data: [1, 3, 8   , 11, 16], link: "https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/93" }}, // 1,2,4,6,8,3,2,2,7,9,10,13,9,8,8,12,11,16,13       
-                nonResponder: { boxplot: { data: [1, 5, 12  , 26, 34], link: "https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/93" }}, // 1,5,4,1,5,3,8,6,12,7,16,16,26,27,29,26,34,29,14   
-                surgery     : { boxplot: { data: [1, 2, 10.5, 20, 32], link: "https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/92" }}, // 2,2,1,2,1,3,4,8,4,15,19,20,13,29,25,25,32,17      
+                label: "Age at Dx of <b>52 months</b> (4 years, 4 months)",
+                responder   : { boxplot: { data: [1, 3, 8 , 11, 16], link: "https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/93" }},    // 1,2,4,6,8,3,2,2,7,9,10,13,9,8,8,12,11,16,13       
+                nonResponder: { boxplot: { data: [1, 5, 12, 26, 34], link: "https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/93" }},    // 1,5,4,1,5,3,8,6,12,7,16,16,26,27,29,26,34,29,14   
+                surgery     : { boxplot: { data: [1, 4, 17, 32, 40], link: "https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/112" }},   // 3,2,1,4,1,5,7,14,7,20,27,34,31,36,32,37,40,20
+                // surgery     : { boxplot: { data: [1, 2, 10.5, 20, 32], link: "https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/92" }}, // 2,2,1,2,1,3,4,8,4,15,19,20,13,29,25,25,32,17      
+                // 3,2,1,4,1,5,7,14,7,20,27,34,31,36,32,37,40,20
             },
             {
                 label: "<b>Female</b>",
@@ -140,7 +142,7 @@ const patients = [
                 label: 'Age at Dx of <b>12 months</b>',
                 responder   : { boxplot: { data: [1, 3, 8   , 11, 16], link: "https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/93" }}, // 1,2,4,6,8,3,2,2,7,9,10,13,9,8,8,12,11,16,13    
                 nonResponder: { boxplot: { data: [1, 5, 12  , 26, 34], link: "https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/93" }}, // 1,5,4,1,5,3,8,6,12,7,16,16,26,27,29,26,34,29,14
-                surgery     : { boxplot: { data: [1, 2, 10.5, 20, 32] }}, // 2,2,1,2,1,3,4,8,4,15,19,20,13,29,25,25,32,17        ?
+                surgery     : { boxplot: { data: [1, 2, 10.5, 20, 32], link: "https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/92" }}, // 2,2,1,2,1,3,4,8,4,15,19,20,13,29,25,25,32,17        ?
             },
             {
                 label: '<b>Male</b>',
