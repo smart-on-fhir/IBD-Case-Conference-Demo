@@ -43,18 +43,22 @@ const plotChartBaseConfig = {
         outside: true,
         animation: false,
         hideDelay: 0,
+        padding: 20,
         style: {
-            fontSize: '16px',
+            fontSize: '14px',
             fontFamily: 'inherit',
-            color: 'inherit'
+            color: 'inherit',
         },
         formatter () {
-            return `<b>Distribution</b><br/>
-            Min: ${this.low}<br/>
-            Q1: ${this.q1}<br/>
-            Median: <b>${this.median}</b><br/>
-            Q3: ${this.q3}<br/>
-            Max: ${this.high}`;
+            return `<b class="text-success">Distribution</b><hr style="margin:4px 0;"/>
+            <table><tbody>
+            <tr><td style="text-align: right">Min:&nbsp;</td><td>${this.low}</td></tr>
+            <tr><td style="text-align: right">Q1:&nbsp;</td><td>${this.q1}</td></tr>
+            <tr><td style="text-align: right">Median:&nbsp;</td><td><b>${this.median}</b></td></tr>
+            <tr><td style="text-align: right">Q3:&nbsp;</td><td>${this.q3}</td></tr>
+            <tr><td style="text-align: right">Max:&nbsp;</td><td>${this.high}</td></tr>
+            </tbody>
+            </table>`;
         }
     },
 };
@@ -130,14 +134,17 @@ function plotChart(container, options, value) {
             ...plotChartBaseConfig.tooltip,
             formatter: () => {
                 const bp = options.data;
-                return `<b>Distribution:</b><br/>
-                Min: ${bp[0]}<br/>
-                Q1: ${bp[1]}<br/>
-                Median: ${bp[2]}<br/>
-                Q3: ${bp[3]}<br/>
-                Max: ${bp[4]}<br/>
-                <hr style="margin:4px 0;">
-                <b>Patient value:</b> ${value}`;
+                return `<b class="text-success">Distribution</b><hr style="margin:4px 0;"/>
+                <table><tbody>
+                <tr><td style="text-align: right">Min:&nbsp;</td><td>${bp[0]}</td></tr>
+                <tr><td style="text-align: right">Q1:&nbsp;</td><td>${bp[1]}</td></tr>
+                <tr><td style="text-align: right">Median:&nbsp;</td><td><b>${bp[2]}</b></td></tr>
+                <tr><td style="text-align: right">Q3:&nbsp;</td><td>${bp[3]}</td></tr>
+                <tr><td style="text-align: right">Max:&nbsp;</td><td>${bp[4]}</td></tr>
+                </tbody>
+                </table>
+                <br/>
+                <b class="text-success">Patient Age at Dx</b><hr style="margin:4px 0;"/>${Math.round(value * 12)} months`;
             }
         }
     };
